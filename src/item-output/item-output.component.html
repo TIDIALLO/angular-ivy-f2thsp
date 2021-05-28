@@ -1,0 +1,8 @@
+<form action="">
+  <div class="form-group"> 
+    <label class="col-sm-2 col-form-label col-form-label-sm" for="item-input">Add an item:</label>
+    <input type="text" id="item-input" #newItem>
+    <button (click)="addNewItem(newItem.value)" class="btn btn-success mb-2">Add to parent's list</button>
+  </div>
+  
+</form>

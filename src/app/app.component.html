@@ -1,4 +1,21 @@
 
-<hello name="{{ name }}"></hello>
+<hello name="{{name}}"></hello>
 
 <app-about></app-about>
+
+<h1>Inputs and Outputs</h1>
+
+<app-item-details [item]="currentItem"></app-item-details>
+
+<div class="container">
+  
+  <div class="panel panel-primary">
+    <div class="panel panel-heading">Utilisation de @Output</div>
+    <div class="panel panel-body">
+        <ul>
+  <li *ngFor="let item of items">{{item}}</li>
+</ul>
+<app-item-output (newItemEvent)="addItem($event)"></app-item-output>
+    </div>
+  </div>
+</div>

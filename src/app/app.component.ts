@@ -7,5 +7,14 @@ import { Component, VERSION } from '@angular/core';
   styleUrls: [ './app.component.css' ]
 })
 export class AppComponent  {
+  currentItem = 'Television';
   name = 'Angular ' + VERSION.major;
+
+  items = ['item1', 'item2', 'item3', 'item4'];
+
+  addItem(newItem:string) {
+    this.items.push(newItem);
+  }
+
 }
+  
