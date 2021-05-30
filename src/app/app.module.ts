@@ -9,10 +9,14 @@ import { AboutComponent } from '../about/about.component';
 import { ItemDetailsComponent } from './item-details/item-details.component';
 import { ParentComponent } from './parent/parent.component';
 import { ItemOutputComponent } from '../item-output/item-output.component';
+import { AboutsService } from '../services/abouts.service';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule ],
+
   declarations: [ AppComponent, HelloComponent,AboutComponent, ItemDetailsComponent, ParentComponent,ItemOutputComponent ],
-  bootstrap:    [ AppComponent ]
+
+  bootstrap:    [ AppComponent ],
+  providers: [AboutsService]
 })
 export class AppModule { }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AboutsService } from '../services/abouts.service';
 
 @Component({
   selector: 'app-about',
@@ -6,24 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./about.component.css']
 })
 export class AboutComponent implements OnInit {
-  info ={
-    nom:"Tidiane",
-    email:"tidiane01@gmail.com",
-    tel:77790000
-  };
-  commentaires =[];
-  commentaire={date:null,message:""};
-  newComment = false;
-  constructor() { }
+
+  constructor(private aboutService:AboutsService) { }
+  info = this.aboutService.getInfos();
+  comments = this.aboutService.getAllComments();
+  comment: {id:0,message:'',date:null};
+  newComment=false;
 
   addComment(){
-    if(this.commentaire.message!=''){
-      this.commentaire.date = new Date();
-      this.commentaires.push({
-        date:this.commentaire.date,
-        message:this.commentaire.message
-      });
-      this.commentaire.message = '';
+    if(this.comment.message!=''){
+      this.aboutService.addComment({
+      message:this.comment.message});
+      this.comments = this.aboutService.getAllComments();
+      this.comment.message='';
     }
     
   }

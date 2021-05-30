@@ -8,15 +8,15 @@
   <li>Tel: {{info.tel}}</li>
 </ul>
 
-<input type="text" [(ngModel)]="commentaire.message">
+<input type="text" [(ngModel)]="comment.message">
 <button (click) = "addComment()" 
 [disabled]="newComment" class="btn btn-primary">Commenter
 </button>
 
-<div *ngIf=" commentaires.length > 0 ; else noComment" >
+<div *ngIf=" comments.length > 0 ; else noComment" >
   <h3>Liste des commentaires</h3>
   <ul>
-    <li *ngFor="let c of commentaires">
+    <li *ngFor="let c of comments">
         {{c.date | date:'medium'}} : {{c.message}}
     </li>
   </ul>
